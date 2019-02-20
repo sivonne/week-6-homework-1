@@ -39,7 +39,10 @@ $(function() {
     
     // Display the album art
     //Js-only version
-    document.getElementById("search-track-container").innerHTML.hasAttribute('src', data.album.images[0].url) = '<img></>';
+    var img = document.getElementById("search-track-container").innerHTML = '<img/>';
+    //img.setAttribute('src', data.album.images[0].url);
+    img.attr('src', data.album.images[0].url);
+  //   img.appendTo('#search-track-container');
   //   var img = $('<img/>');
   //   img.attr('src', data.album.images[0].url);
   //   img.appendTo('#search-track-container');
