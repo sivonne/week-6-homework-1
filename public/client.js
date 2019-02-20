@@ -10,19 +10,19 @@ $(function() {
     console.groupEnd();
     
     // Display the track name
+    //Js-only version
+    document.getElementById("search-track-container").innerHTML = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
+    
+    
+    //JQuery version
     // var trackName = $(
     //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
     //   `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
     // );
     // trackName.appendTo('#search-track-container');
-    
-//     //Js-only Version
-    var trackName = data.innerHTML = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
-      // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    
-    trackName.append('search-track-container');
-    
 
+    
+//Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     
     
     
@@ -38,10 +38,12 @@ $(function() {
     document.getElementById('search-track-container').append(h5);
     
     // Display the album art
-    var img = $('<img/>');
-    img.attr('src', data.album.images[0].url);
-    img.appendTo('#search-track-container');
-  });
+    //Js-only version
+    var img = document.getElementById("search-track-container").innerHTML = '<img>'+'</>';
+  //   var img = $('<img/>');
+  //   img.attr('src', data.album.images[0].url);
+  //   img.appendTo('#search-track-container');
+  // });
   
   $.get('/category-playlists', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
