@@ -10,12 +10,21 @@ $(function() {
     console.groupEnd();
     
     // Display the track name
+    // var trackName = $(
+    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
+    //   `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
+    // );
+    // trackName.appendTo('#search-track-container');
     
-    var trackName = $(
-      // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
-      `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    );
-    trackName.appendTo('#search-track-container');
+    //Js-only Version
+    var trackName = data.innerHTML= '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
+      // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
+    
+    trackName.appendChild('#search-track-container');
+    
+
+    
+    
     
     // Display the artist name
     var artists = '';
