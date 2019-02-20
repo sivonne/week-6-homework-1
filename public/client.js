@@ -10,6 +10,7 @@ $(function() {
     console.groupEnd();
     
     // Display the track name
+    
     var trackName = $(
       // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
       `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
