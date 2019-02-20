@@ -39,11 +39,12 @@ $(function() {
     
     // Display the album art
     //Js-only version
-    var img = document.getElementById("search-track-container").innerHTML = '<img>'+'</>';
+    document.getElementById("search-track-container").innerHTML.hasAttribute('src', data.album.images[0].url) = '<img></>';
   //   var img = $('<img/>');
   //   img.attr('src', data.album.images[0].url);
   //   img.appendTo('#search-track-container');
-  // });
+  // 
+  });
   
   $.get('/category-playlists', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
