@@ -20,7 +20,7 @@ $(function() {
     var trackName = data.innerHTML = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
       // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
     
-    trackName.outerHTML('#search-track-container');
+    trackName.append('search-track-container');
     
 
     
