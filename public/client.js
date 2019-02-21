@@ -37,10 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Display the covers of the playlists
     data.forEach((c) => {
+      //labels country for each set of playlists
+      var heading = document.createElement('heading');    
+      heading.innerHTML = '<br><h1>' + c.name + '</h1><br>';
+      document.getElementById('category-playlists-container').append(heading);
+
       c.data.playlists.items.map(function(playlist, i) {
         var img = document.createElement('img');
-         img.innerHTML ='<br><h1>'c.name}</h1><br>`;
-
         img.innerHTML += '<img class="cover-image"/>';
         img.innerHTML += img.setAttribute('src', playlist.images[0].url);
         document.getElementById('category-playlists-container').append(img);
