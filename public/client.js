@@ -135,9 +135,17 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
     document.getElementById('artist-container').append(img);
     
     // Display the artist name
-    var trackName = $('<h3>' + data.name + '</h3>');
-    trackName.appendTo('#artist-container');
+    var trackName = document.createElement('trackName');
+    trackName.innerHTML = '<h3>' + data.name + '</h3>';
+    document.getElementById('artist-container').append(trackName);
     
+    // Display the artist's genres
+    data.genres.map(function(genre, i) {
+    var genreItem = document.createElement('genreItem');
+    genreItem.innerHTML = '<p>' + genre + '</p>';
+    document.getElementById('artist-container').append(genreItem);
+    });
+  });
     
     
 //JQuery Section
@@ -150,12 +158,12 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
     // var trackName = $('<h3>' + data.name + '</h3>');
     // trackName.appendTo('#artist-container');
     
-    // Display the artist's genres
-    data.genres.map(function(genre, i) {
-      var genreItem = $('<p>' + genre + '</p>');
-      genreItem.appendTo('#artist-container');
-    });
-  });
+  //   // Display the artist's genres
+  //   data.genres.map(function(genre, i) {
+  //     var genreItem = $('<p>' + genre + '</p>');
+  //     genreItem.appendTo('#artist-container');
+  //   });
+  // });
   
   fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
