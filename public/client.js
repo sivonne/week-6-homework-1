@@ -55,19 +55,12 @@ $(function() {
     console.groupEnd();
     
     // Display the covers of the playlists
-    //Js-only Version
+    //JS-only version 
+    //    document.getElementById("search-track-container").innerHTML = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
+
     data
       .forEach((c) => {
-      document.getElementById('category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
-      c.data.playlists.items.map(function(playlist, i) {
-      var img = $('<img class="cover-image"/>');
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
-    });
-    });
-    data
-      .forEach((c) => {
-      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+      document.getElementById('category-playlists-container').append('<br><h1>' +  c.name + '</h1><br>')
       c.data.playlists.items.map(function(playlist, i) {
       var img = $('<img class="cover-image"/>');
       img.attr('src', playlist.images[0].url);
@@ -75,6 +68,19 @@ $(function() {
     });
     })
   });
+  
+  
+  
+  //data
+  //     .forEach((c) => {
+  //     $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+  //     c.data.playlists.items.map(function(playlist, i) {
+  //     var img = $('<img class="cover-image"/>');
+  //     img.attr('src', playlist.images[0].url);
+  //     img.appendTo('#category-playlists-container');
+  //   });
+  //   })
+  // });
   
   $.get('/audio-features', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
