@@ -100,13 +100,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // The audio features we want to show
     var keys = ["danceability", "energy", "acousticness", "speechiness", "loudness"]
     
-    // Display the audio features
+    
+    //JS-only version
     keys.map(function(key, i) {
       if (data.hasOwnProperty(key)) {
-        var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
+        var feature = document.createElement('feature');
+            feature.innerHTML('<span class="big-number">' + data[key] + ' </span>'  + key);
         feature.appendTo('#audio-features-container');
+        document.getElementById('audio-features-container').append(feature);
       }
     });
+    // Display the audio features
+    // keys.map(function(key, i) {
+    //   if (data.hasOwnProperty(key)) {
+    //     var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
+    //     feature.appendTo('#audio-features-container');
+    //   }
+    // });
+    
+    //var img = document.createElement('img');
+    //img.innerHTML = img.setAttribute('src', data.album.images[0].url);
+    //document.getElementById('search-track-container').append(img);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   });
   
   $.get('/artist', function(data) {
