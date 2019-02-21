@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // 
   });
   
-  $.get('/category-playlists', function(data) {
+  fetch('/category-playlists').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -90,8 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   
   
-  
-  $.get('/audio-features', function(data) {
+fetch('/audio-features').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -118,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
     
   });
-  
-  $.get('/artist', function(data) {
+fetch('/artist').then(resp => resp.json()).then((data) => {
+ 
     //JS-only section
     
     // "Data" is the object we get from the API. See server.js for the function that returns it.
