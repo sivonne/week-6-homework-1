@@ -39,8 +39,11 @@ $(function() {
     
     // Display the album art
     //Js-only version
-    var img = document.getElementById('search-track-container').innerHTML = '<img/>';
+    // var img = document.getElementById('search-track-container').innerHTML = '<img/>';
+    var img = document.querySelector('img')
     img.setAttribute('src', data.album.images[0].url);
+    
+
     
   //   var img = $('<img/>');
   //   img.attr('src', data.album.images[0].url);
@@ -62,10 +65,11 @@ $(function() {
       .forEach((c) => {
       document.getElementById("category-playlists-container").innerHTML = '<br><h1>' + c.name + '</h1><br>';
       c.data.playlists.items.map(function(playlist, i) {
-      var img = document.getElementById("category-playlists-container").innerHTML += '<img class="cover-image"/>';
+      var img_playlist = document.getElementById("category-playlists-container").innerHTML = '<img class="cover-image"/>';
       document.querySelector('img').setAttribute('src', playlist.images[0].url);
+      // document.body.appendChild(document.createElement('img'));
 
-        img.appendTo('#category-playlists-container');
+        //img.appendTo('#category-playlists-container');
     });
     })
   });
