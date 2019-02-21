@@ -9,21 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(data);
     console.groupEnd();
     
-    // Display the track name
+    
     //Js-only version
+    // Display the track name
     document.getElementById("search-track-container").innerHTML = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
     
     
     //JQuery version
+    // Display the track name
     // var trackName = $(
     //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
     //   `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
     // );
-    // trackName.appendTo('#search-track-container');
-
-    
-//Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
-    
+    // trackName.appendTo('#search-track-container');    
     
     
     // Display the artist name
@@ -145,10 +143,8 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
     genreItem.innerHTML = '<p>' + genre + '</p>';
     document.getElementById('artist-container').append(genreItem);
     });
-  });
     
-    
-//JQuery Section
+    //JQuery Section
     // Display the artist's image
     // var img = $('<img class="circle-image" />');
     // img.attr('src', data.images[0].url);
@@ -164,6 +160,10 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
   //     genreItem.appendTo('#artist-container');
   //   });
   // });
+  });
+    
+    
+
   
   fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
@@ -172,10 +172,19 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
     console.groupEnd();
     
     // Display the audio features
+    data.genres.map(function(genre, i) {
+    var genreItem = document.createElement('genreItem');
+    genreItem.innerHTML = '<p>' + genre + '</p>';
+    document.getElementById('artist-container').append(genreItem);
+      
+      
     data.map(function(track, i) {
-      var trackName = $('<li>' + track.name + '</li>');
-      trackName.appendTo('#top-tracks-container');
+      var trackName = document.createElement('trackName');
+      trackName.innerHTML = '<li>' + track.name + '</li>'
+      document.getElementById('top-tracks-container').append(trackName);
     });
   });
+//Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
 
 });
+
