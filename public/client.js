@@ -105,8 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     keys.map(function(key, i) {
       if (data.hasOwnProperty(key)) {
         var feature = document.createElement('feature');
-            feature.innerHTML('<span class="big-number">' + data[key] + ' </span>'  + key);
-        feature.appendTo('#audio-features-container');
+        feature.innerHTML = '<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>';
         document.getElementById('audio-features-container').append(feature);
       }
     });
@@ -117,19 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //     feature.appendTo('#audio-features-container');
     //   }
     // });
-    
-    //var img = document.createElement('img');
-    //img.innerHTML = img.setAttribute('src', data.album.images[0].url);
-    //document.getElementById('search-track-container').append(img);
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
   });
   
