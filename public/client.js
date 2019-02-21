@@ -111,7 +111,6 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
       document.getElementById('top-tracks-container').append(trackName);
     });
 
-    //Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
 
   });
 });
@@ -173,3 +172,15 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
   // });
 
 // });
+
+//Helpful resources: 
+// https://www.w3schools.com/jsref/prop_html_innerhtml.asp
+// http://youmightnotneedjquery.com/
+// https://api.jquery.com/attr/#attr-attributeName
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+// https://plainjs.com/javascript/attributes/setting-getting-and-removing-data-attributes-8/ 
+// https://plainjs.com/javascript/manipulation/append-or-prepend-to-an-element-29/
+// https://clubmate.fi/append-and-prepend-elements-with-pure-javascript/ 
+// https://www.w3schools.com/jsref/prop_node_innertext.asp 
+// https://developers.google.com/web/updates/2015/03/introduction-to-fetch 
+// https://gist.github.com/joyrexus/7307312 
