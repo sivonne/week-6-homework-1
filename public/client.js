@@ -119,22 +119,36 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
   });
   
 fetch('/artist').then(resp => resp.json()).then((data) => {
- 
-    //JS-only section
-    
+ //var feature = document.createElement('feature');
+// feature.innerHTML = '<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>';
+// document.getElementById('audio-features-container').append(feature);    
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist', 'color: #F037A5; font-size: large');
     console.log(data);
     console.groupEnd();
     
+//JS-only section
     // Display the artist's image
-    var img = $('<img class="circle-image" />');
-    img.attr('src', data.images[0].url);
-    img.appendTo('#artist-container');
+    var img = document.createElement('img');
+    img.innerHTML = '<img class="circle-image" />';
+    img.innerHTML += img.setAttribute('src', data.images[0].url);
+    document.getElementById('artist-container').append(img);
     
     // Display the artist name
     var trackName = $('<h3>' + data.name + '</h3>');
     trackName.appendTo('#artist-container');
+    
+    
+    
+//JQuery Section
+    // Display the artist's image
+    // var img = $('<img class="circle-image" />');
+    // img.attr('src', data.images[0].url);
+    // img.appendTo('#artist-container');
+    
+    // // Display the artist name
+    // var trackName = $('<h3>' + data.name + '</h3>');
+    // trackName.appendTo('#artist-container');
     
     // Display the artist's genres
     data.genres.map(function(genre, i) {
