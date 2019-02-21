@@ -171,20 +171,23 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
     console.log(data);
     console.groupEnd();
     
+    //JS-only Version
     // Display the audio features
-    data.genres.map(function(genre, i) {
-    var genreItem = document.createElement('genreItem');
-    genreItem.innerHTML = '<p>' + genre + '</p>';
-    document.getElementById('artist-container').append(genreItem);
-      
-      
-    data.map(function(track, i) {
+      data.map(function(track, i) {
       var trackName = document.createElement('trackName');
       trackName.innerHTML = '<li>' + track.name + '</li>'
       document.getElementById('top-tracks-container').append(trackName);
     });
+    //Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
+
+    
+  //JQuery Version
+  //   data.map(function(track, i) {
+  //     var trackName = $('<li>' + track.name + '</li>');
+  //     trackName.appendTo('#top-tracks-container');
+  //   });
+  // });
+
+// });
   });
-//Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
-
 });
-
