@@ -58,33 +58,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Display the covers of the playlists
     //JS-only version 
-    //    document.getElementById("search-track-container").innerHTML = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
+    data.forEach((c) => {
+      c.data.playlists.items.map(function(playlist, i) {
+        var img = document.createElement('img');
+        img.innerHTML = '<img class="cover-image"/>';
+        img.innerHTML += img.setAttribute('src', playlist.images[0].url);
+        document.getElementById('artist-container').append(img);
 
-//     data
-//       .forEach((c) => {
-//       document.getElementById("category-playlists-container").innerHTML = '<br><h1>' + c.name + '</h1><br>';
-//       c.data.playlists.items.map(function(playlist, i) {
-//       var img = document.getElementById("category-playlists-container").innerHTML = '<img class="cover-image"/>';
-//       document.querySelector('img').setAttribute('src', playlist.images[0].url);
+      });
+    });
+  
+    });
+    });
+
+//  data.map(function(track, i) {
+//  var trackName = document.createElement('trackName');
+//       trackName.innerHTML = '<li>' + track.name + '</li>'
+//       document.getElementById('top-tracks-container').append(trackName);
 //     });
-//     })
-//   });
-//     var img = document.createElement('img');
-//     img.innerHTML = img.setAttribute('src', data.album.images[0].url);
-//     document.getElementById('search-track-container').append(img);
   
   
   //JQuery Version
-  data
-      .forEach((c) => {
-      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
-      c.data.playlists.items.map(function(playlist, i) {
-      var img = $('<img class="cover-image"/>');
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
-    });
-    })
-  });
+  // data
+  //     .forEach((c) => {
+  //     $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+  //     c.data.playlists.items.map(function(playlist, i) {
+  //     var img = $('<img class="cover-image"/>');
+  //     img.attr('src', playlist.images[0].url);
+  //     img.appendTo('#category-playlists-container');
+  //   });
+  //   })
+  // });
   
   
   
@@ -172,16 +176,18 @@ fetch('/artist').then(resp => resp.json()).then((data) => {
     console.groupEnd();
     
     //JS-only Version
-    // Display the audio features
+    // Display the top tracks
       data.map(function(track, i) {
       var trackName = document.createElement('trackName');
       trackName.innerHTML = '<li>' + track.name + '</li>'
       document.getElementById('top-tracks-container').append(trackName);
     });
+
     //Helpful resource: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
 
     
   //JQuery Version
+  // Display the top tracks
   //   data.map(function(track, i) {
   //     var trackName = $('<li>' + track.name + '</li>');
   //     trackName.appendTo('#top-tracks-container');
