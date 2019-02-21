@@ -40,8 +40,11 @@ $(function() {
     // Display the album art
     //Js-only version
     // var img = document.getElementById('search-track-container').innerHTML = '<img/>';
-    var img = document.querySelector('img')
-    img.setAttribute('src', data.album.images[0].url);
+    // var img2 = document.setAttribute('src', data.album.images[0].url)
+    // img2.appendChild('search-track-container');
+    var img = document.createElement('img');
+    img.innerText = ('src', data.album.images[0].url);
+    document.getElementById('search-track-container').append(img);
     
 
     
